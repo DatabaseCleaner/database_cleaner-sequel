@@ -5,7 +5,7 @@ require "database_cleaner/sequel/version"
 Gem::Specification.new do |spec|
   spec.name          = "database_cleaner-sequel"
   spec.version       = DatabaseCleaner::Sequel::VERSION
-  spec.authors       = ["Ernesto Tagwerker"]
+  spec.authors       = ["Ernesto Tagwerker", "Micah Geisel"]
   spec.email         = ["ernesto@ombulabs.com"]
 
   spec.summary       = "Strategies for cleaning databases using Sequel. Can be used to ensure a clean state for testing."
