@@ -62,4 +62,4 @@ Due to an inconsistency in JRuby's implementation of Fibers, Sequel gives a diff
 
 ## COPYRIGHT
 
-See [LICENSE] for details.
+See [LICENSE](LICENSE) for details.
