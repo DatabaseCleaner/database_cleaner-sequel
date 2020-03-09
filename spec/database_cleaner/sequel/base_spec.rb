@@ -17,9 +17,9 @@ module DatabaseCleaner
     end
 
     RSpec.describe ExampleStrategy do
-      it_should_behave_like "a generic strategy"
       it { is_expected.to respond_to(:db)  }
       it { is_expected.to respond_to(:db=) }
+      it { is_expected.to respond_to(:cleaning) }
 
       it "should store my desired db" do
         subject.db = :my_db

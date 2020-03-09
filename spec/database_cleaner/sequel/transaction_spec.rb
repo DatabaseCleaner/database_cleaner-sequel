@@ -5,8 +5,7 @@ require 'support/sequel_helper'
 module DatabaseCleaner
   module Sequel
     RSpec.describe Transaction do
-      it_should_behave_like "a generic strategy"
-      it_should_behave_like "a generic transaction strategy"
+      it_should_behave_like "a database_cleaner strategy"
 
       SequelHelper.with_all_dbs do |helper|
         context "using a #{helper.db} connection" do
