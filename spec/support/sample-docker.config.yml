@@ -1,0 +1,25 @@
+mysql2:
+  adapter: mysql2
+  database: database_cleaner_test
+  username: database_cleaner
+  password: database_cleaner
+  host: 127.0.0.1
+  port: 3307
+  encoding: utf8
+
+postgres:
+  adapter: postgresql
+  database: database_cleaner_test
+  username: database_cleaner
+  password: database_cleaner
+  host: 127.0.0.1
+  port: 5433
+  encoding: unicode
+  template: template0
+
+sqlite3:
+  adapter: sqlite3
+  database: tmp/database_cleaner_test.sqlite3
+  pool: 5
+  timeout: 5000
+  encoding: utf8
