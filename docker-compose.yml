@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+  mysql:
+    image: mysql:8
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root-password
+      MYSQL_DATABASE: database_cleaner_test
+      MYSQL_USER: database_cleaner
+      MYSQL_PASSWORD: database_cleaner
+    volumes:
+      - mydata:/var/lib/mysql
+
+  postgres:
+    image: postgres:12
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_DB: database_cleaner_test
+      POSTGRES_USER: database_cleaner
+      POSTGRES_PASSWORD: database_cleaner
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  mydata:
+  pgdata:

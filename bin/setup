@@ -1,8 +1,44 @@
 #!/usr/bin/env bash
 set -euo pipefail
 IFS=$'\n\t'
-set -vx
+
+NAME=$0
+DOCKER=NO
+
+usage() {
+  cat <<EOF
+Usage:
+  $NAME
+
+OPTIONS
+  -d|--docker  copy example config that works with docker-composed test
+               databases, copy  default otherwise.
+  -h|--help    display this message and exit.
+EOF
+}
+
+while [[ $# -gt 0 ]]
+do
+
+opt="$1"
+case $opt in
+  -d|--docker)
+    DOCKER=YES
+    shift
+    ;;
+  -h|--help)
+    usage
+    exit
+    ;;
+esac
+done
 
 bundle check || bundle install
-cp spec/support/sample.config.yml spec/support/config.yml
 
+if [[ $DOCKER = "YES" ]]
+then
+  cp spec/support/sample-docker.config.yml spec/support/config.yml
+  echo "Run \`docker-compose up\` to setup databases"
+else
+  cp spec/support/sample.config.yml spec/support/config.yml
+fi
