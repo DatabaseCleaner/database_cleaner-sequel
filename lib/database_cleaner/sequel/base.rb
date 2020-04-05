@@ -1,12 +1,13 @@
-require 'database_cleaner/generic/base'
+require "database_cleaner/generic/base"
+
 module DatabaseCleaner
   module Sequel
     def self.available_strategies
-      %w(truncation transaction deletion)
+      %i(transaction truncation deletion)
     end
 
     def self.default_strategy
-      :transaction
+      available_strategies.first
     end
 
     module Base
