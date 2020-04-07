@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/DatabaseCleaner/database_cleaner-sequel.svg?branch=master)](https://travis-ci.org/DatabaseCleaner/database_cleaner-sequel)
 [![Code Climate](https://codeclimate.com/github/DatabaseCleaner/database_cleaner-sequel/badges/gpa.svg)](https://codeclimate.com/github/DatabaseCleaner/database_cleaner-sequel)
+[![codecov](https://codecov.io/gh/DatabaseCleaner/database_cleaner-sequel/branch/master/graph/badge.svg)](https://codecov.io/gh/DatabaseCleaner/database_cleaner-sequel)
 
 Clean your Sequel databases with Database Cleaner.
 
