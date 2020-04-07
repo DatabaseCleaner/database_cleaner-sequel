@@ -1,8 +1,11 @@
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
 # Specify your gem's dependencies in database_cleaner-sequel.gemspec
 gemspec
 
-gem "database_cleaner-core", github: "DatabaseCleaner/database_cleaner", branch: "master"
+gem "database_cleaner-core", git: "https://github.com/DatabaseCleaner/database_cleaner"
+
+group :test do
+  gem "simplecov", require: false
+  gem "codecov", require: false
+end
