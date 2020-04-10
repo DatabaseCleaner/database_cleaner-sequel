@@ -17,6 +17,21 @@ group :test do
 end
 ```
 
+```ruby
+# test_helper.rb
+DatabaseCleaner[:sequel].strategy = :transaction
+
+class Minitest::Spec
+  before :each do
+    DatabaseCleaner[:sequel].start
+  end
+
+  after :each do
+    DatabaseCleaner[:sequel].clean
+  end
+end
+```
+
 ## Supported Strategies
 
 Here is an overview of the supported strategies:
