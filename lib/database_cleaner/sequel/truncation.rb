@@ -1,11 +1,13 @@
-require 'database_cleaner/generic/truncation'
 require 'database_cleaner/sequel/base'
 
 module DatabaseCleaner
   module Sequel
-    class Truncation
-      include DatabaseCleaner::Generic::Truncation
-      include DatabaseCleaner::Sequel::Base
+    class Truncation < Base
+      def initialize only: [], except: [], pre_count: false
+        @only = only
+        @except = except
+        @pre_count = pre_count
+      end
 
       def start
         @last_txid = txid
@@ -63,7 +65,7 @@ module DatabaseCleaner
       end
 
       def tables_to_truncate(db)
-        (@only || db.tables.map(&:to_s)) - @tables_to_exclude
+        (@only.any? ? @only : db.tables.map(&:to_s)) - @except
       end
 
       # overwritten
