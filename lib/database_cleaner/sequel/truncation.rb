@@ -4,8 +4,8 @@ require 'database_cleaner/sequel/base'
 module DatabaseCleaner
   module Sequel
     class Truncation
-      include ::DatabaseCleaner::Sequel::Base
-      include ::DatabaseCleaner::Generic::Truncation
+      include DatabaseCleaner::Generic::Truncation
+      include DatabaseCleaner::Sequel::Base
 
       def start
         @last_txid = txid

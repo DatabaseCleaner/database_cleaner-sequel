@@ -1,8 +1,9 @@
 require 'database_cleaner/sequel/base'
+
 module DatabaseCleaner
   module Sequel
     class Transaction
-      include ::DatabaseCleaner::Sequel::Base
+      include DatabaseCleaner::Sequel::Base
 
       def self.check_fiber_brokenness
         if !@checked_fiber_brokenness && Fiber.new { Thread.current }.resume != Thread.current
