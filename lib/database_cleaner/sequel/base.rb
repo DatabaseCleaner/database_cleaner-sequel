@@ -11,7 +11,7 @@ module DatabaseCleaner
     end
 
     module Base
-      include ::DatabaseCleaner::Generic::Base
+      include DatabaseCleaner::Generic::Base
 
       def db=(desired_db)
         @db = desired_db
