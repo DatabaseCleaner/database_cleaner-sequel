@@ -1,5 +1,4 @@
 require "bundler/setup"
-require "database_cleaner/sequel"
 
 if ENV['COVERAGE'] == 'true'
   require "simplecov"
@@ -13,6 +12,8 @@ if ENV['COVERAGE'] == 'true'
   SimpleCov.start
   puts "required simplecov"
 end
+
+require "database_cleaner/sequel"
 
 RSpec.configure do |config|
   # These two settings work together to allow you to limit a spec run
