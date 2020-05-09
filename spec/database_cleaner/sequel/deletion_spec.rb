@@ -34,6 +34,14 @@ module DatabaseCleaner
               end
             end
           end
+
+          context 'with multiple databases' do
+            it 'complains when you try to specify a default' do
+              ::Sequel.connect("sqlite:/")
+              subject.db = :default
+              expect { subject.clean }.to raise_error("As you have more than one active sequel database you have to specify the one to use manually!")
+            end
+          end
         end
       end
     end
