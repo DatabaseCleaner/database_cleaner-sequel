@@ -65,7 +65,7 @@ module DatabaseCleaner
       end
 
       def tables_to_truncate(db)
-        (@only.any? ? @only : db.tables.map(&:to_s)) - @except
+        (@only.any? ? @only : db.tables.map(&:to_s)) - @except - migration_storage_names
       end
 
       # overwritten
