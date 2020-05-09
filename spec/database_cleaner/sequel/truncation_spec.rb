@@ -84,6 +84,17 @@ module DatabaseCleaner
               subject.clean
             end
           end
+
+          if helper.db == :postgres
+            describe "postgres optimization to skip unnecessary cleaning" do
+              it "skips cleaning if database hasn't changed since last cleaning" do
+                subject.cleaning { connection[:users].insert }
+
+                expect(subject.db).to_not receive(:execute_ddl)
+                subject.cleaning {}
+              end
+            end
+          end
         end
       end
     end
