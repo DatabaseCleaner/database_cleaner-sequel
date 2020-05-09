@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "byebug"
 
 if ENV['COVERAGE'] == 'true'
   require "simplecov"
