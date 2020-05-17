@@ -46,7 +46,7 @@ The transaction strategy accepts no options.
 
 The truncation and deletion strategies may accept the following options:
 
-* `:only` and `:except` may take a list of collection names:
+* `:only` and `:except` may take a list of table names:
 
 ```ruby
 # Only truncate the "users" table.
