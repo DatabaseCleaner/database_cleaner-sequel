@@ -70,12 +70,6 @@ Here is an overview of the supported strategies:
   </tbody>
 </table>
 
-## Common Errors
-
-### Nothing happens in JRuby with Sequel using transactions
-
-Due to an inconsistency in JRuby's implementation of Fibers, Sequel gives a different connection to `DatabaseCleaner.start` than is used for tests run between `.start` and `.clean`. This can be worked around by running your tests in a block like `DatabaseCleaner.cleaning { run_my_tests }` instead, which does not use Fibers.
-
 ## COPYRIGHT
 
 See [LICENSE](LICENSE) for details.
