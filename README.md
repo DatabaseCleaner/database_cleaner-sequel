@@ -34,42 +34,45 @@ end
 
 ## Supported Strategies
 
-Here is an overview of the supported strategies:
+Three strategies are supported:
 
-<table>
-  <tbody>
-    <tr>
-      <th>Truncation</th>
-      <th>Transaction</th>
-      <th>Deletion</th>
-    </tr>
-    <tr>
-      <td> Yes</td>
-      <td> <b>Yes</b></td>
-      <td> Yes</td>
-    </tr>
-  </tbody>
-</table>
+* Transaction (default)
+* Truncation
+* Deletion
 
-(Default strategy is denoted in bold)
+## Strategy configuration options
 
-## Configuration options
+The transaction strategy accepts no options.
 
-<table>
-  <tbody>
-    <tr>
-      <th>ORM</th>
-      <th>How to access</th>
-      <th>Notes</th>
-    </tr>
-    <tr>
-      <td> Sequel</td>
-      <td> <code>DatabaseCleaner[:sequel]</code></td>
-      <td> Multiple databases supported; specify <code>DatabaseCleaner[:sequel, {:connection =&gt; Sequel.connect(uri)}]</code></td>
-    </tr>
-  </tbody>
-</table>
+The truncation and deletion strategies may accept the following options:
 
+`:only` and `:except` may take a list of collection names:
+
+```ruby
+# Only truncate the "users" table.
+DatabaseCleaner[:sequel].strategy = :truncation, { only: ["users"] }
+
+# Delete all tables except the "users" table.
+DatabaseCleaner[:sequel].strategy = :deletion, { except: ["users"] }
+```
+
+`:pre_count` - When set to `true` this will check each table for existing rows before truncating or deleting it. This can speed up test suites when many of the tables are never populated. Defaults to `:false`.
+
+## Adapter configuration options
+
+`#db` defaults to the default Sequel database, but can be specified manually in a few ways:
+
+```ruby
+# Sequel connection object
+DatabaseCleaner[:sequel].db = Sequel.connect(uri)
+
+# Back to default:
+DatabaseCleaner[:sequel].db = :default
+
+# Multiple Sequel databases can be specified:
+DatabaseCleaner[:sequel, connection: :default]
+DatabaseCleaner[:sequel, connection: Sequel.connect(uri)]
+```
 ## COPYRIGHT
 
 See [LICENSE](LICENSE) for details.
