@@ -70,8 +70,8 @@ DatabaseCleaner[:sequel].db = Sequel.connect(uri)
 DatabaseCleaner[:sequel].db = :default
 
 # Multiple Sequel databases can be specified:
-DatabaseCleaner[:sequel, connection: :default]
-DatabaseCleaner[:sequel, connection: Sequel.connect(uri)]
+DatabaseCleaner[:sequel, db: :default]
+DatabaseCleaner[:sequel, db: Sequel.connect(uri)]
 ```
 ## COPYRIGHT
 
