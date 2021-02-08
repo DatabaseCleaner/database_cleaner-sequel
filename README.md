@@ -50,10 +50,10 @@ The truncation and deletion strategies may accept the following options:
 
 ```ruby
 # Only truncate the "users" table.
-DatabaseCleaner[:sequel].strategy = :truncation, { only: ["users"] }
+DatabaseCleaner[:sequel].strategy = :truncation, only: ["users"]
 
 # Delete all tables except the "users" table.
-DatabaseCleaner[:sequel].strategy = :deletion, { except: ["users"] }
+DatabaseCleaner[:sequel].strategy = :deletion, except: ["users"]
 ```
 
 * `:pre_count` - When set to `true`, this will check each table for existing rows before truncating or deleting it. This can speed up test suites when many of the tables are never populated. Defaults to `false`.
