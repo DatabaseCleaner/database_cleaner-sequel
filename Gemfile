@@ -4,7 +4,19 @@ source "https://rubygems.org"
 gemspec
 
 gem "database_cleaner-core", git: "https://github.com/DatabaseCleaner/database_cleaner"
-gem "byebug"
+
+group :cruby_only do
+  gem "byebug"
+  gem "mysql2"
+  gem "pg"
+  gem "sqlite3"
+end
+
+group :development do
+  gem "bundler"
+  gem "rake"
+  gem "rspec"
+end
 
 group :test do
   gem "simplecov", require: false
