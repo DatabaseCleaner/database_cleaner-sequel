@@ -3,7 +3,7 @@ require 'database_cleaner/sequel/base'
 module DatabaseCleaner
   module Sequel
     class Truncation < Base
-      def initialize(opts)
+      def initialize(opts = {})
         @only = opts[:only] || []
         @except = opts[:except] || []
         @pre_count = opts[:pre_count] || false
