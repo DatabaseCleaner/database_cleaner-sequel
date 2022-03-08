@@ -20,11 +20,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "database_cleaner-core", "~>2.0.0"
   spec.add_dependency "sequel"
-
-  spec.add_development_dependency "bundler"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "mysql2"
-  spec.add_development_dependency "pg"
-  spec.add_development_dependency "sqlite3"
 end
