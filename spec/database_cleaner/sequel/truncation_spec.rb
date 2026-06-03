@@ -15,7 +15,7 @@ module DatabaseCleaner
             helper.teardown
           end
 
-          let(:connection) { helper.connection }
+          let(:connection) { helper.connection.unwrap }
 
           before { subject.db = connection }
 
@@ -58,7 +58,7 @@ module DatabaseCleaner
           end
 
           describe 'auto increment sequences' do
-            it "resets AUTO_INCREMENT primary key seqeunce" do
+            it "resets AUTO_INCREMENT primary key sequence" do
               table = connection[:users]
               2.times { table.insert }
 
