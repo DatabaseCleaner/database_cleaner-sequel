@@ -18,6 +18,8 @@ group :development do
   gem "rspec"
 end
 
+gem "trilogy"
+
 group :test do
   gem "simplecov", require: false
   gem "codecov", require: false
