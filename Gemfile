@@ -5,6 +5,7 @@ gemspec
 
 gem "database_cleaner-core", git: "https://github.com/DatabaseCleaner/database_cleaner"
 gem "byebug"
+gem "trilogy"
 
 group :test do
   gem "simplecov", require: false
