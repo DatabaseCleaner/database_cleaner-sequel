@@ -73,6 +73,15 @@ DatabaseCleaner[:sequel].db = :default
 DatabaseCleaner[:sequel, db: :default]
 DatabaseCleaner[:sequel, db: Sequel.connect(uri)]
 ```
+
+## Transaction strategy with fiber concurrency extension
+
+```ruby
+around do |example|
+  DatabaseCleaner[:sequel].cleaning(&example)
+end
+```
+
 ## COPYRIGHT
 
 See [LICENSE](LICENSE) for details.
